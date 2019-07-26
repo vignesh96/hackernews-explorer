@@ -101,5 +101,17 @@ avg_by_hour = []
 for hour in comments_by_hour:
     avg_by_hour.append([hour, comments_by_hour[hour] / counts_by_hour[hour]])
 
+swap_avg_by_hour = []
+
+for row in avg_by_hour:
+    swap_avg_by_hour.append([row[1], row[0]])
+
+sorted_swap = sorted(swap_avg_by_hour, reverse=True)
+
+print("Top 5 hours for Ask Posts Comments")
+
+for row in sorted_swap[:5]:
+    print("{}:00: {:.2f} average comments per post".format(row[1], row[0]))
+
 
 
